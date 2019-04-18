@@ -1,8 +1,0 @@
-For the second commit, please review ONLY the DriverClass.java file.
-I did away with the FXML file and have created the basic idea for the first scene only in JavaFX.
-The character path is broken down into individual squares that do not have a stroke color set.
-Therefore they blend together to create one path.
-However if the character needs to stop and turn we can refer to the coordinate points that we need it to move in.
-The character image is separate from the background images so it does have the ability to move anywhere on the screen.
-It's going to be up to us when we set the ActionEvents for the arrow controls that the resulting position of the character is correct.
-The arrow controls are set up in an HBox container.
