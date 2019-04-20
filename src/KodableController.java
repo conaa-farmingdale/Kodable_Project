@@ -61,5 +61,29 @@ public class KodableController {
 	void copy(MouseDragEvent event) {
 
 	}
+	@FXML
+	private void handleDragOver(DragEvent event) {
+		if (event.getDragboard().hasImage()) {
+		event.acceptTransferModes(TransferMode.ANY);
+		}
+	}
+	
+	@FXML
+	private void handleImageDrop(DragEvent event) {
+		event.getDragboard().getImage();
+	}
 
+	@FXML
+			private void handleDragOver(DragEvent event) {
+				if (event.getDragboard().hasImage()) {
+				event.acceptTransferModes(TransferMode.ANY);
+				}
+			}
+			
+			@FXML
+			private void handleImageDrop(DragEvent event) {
+				event.getDragboard().getImage();
+			}
+	
+	
 }
