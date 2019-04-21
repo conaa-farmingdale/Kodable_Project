@@ -123,5 +123,3 @@ public class KodableController {
 		down.setTranslateX(-down.getX());
 		down.setTranslateY(-down.getY());
 	}
-
-}
