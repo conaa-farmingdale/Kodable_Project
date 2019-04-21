@@ -10,16 +10,16 @@ public class KodableController {
 	double orgTranslateX, orgTranslateY;
 
 	@FXML
-	private ImageView move1;
+	private ImageView ans1;
 
 	@FXML
-	private ImageView move2;
+	private ImageView ans2;
 
 	@FXML
-	private ImageView move3;
+	private ImageView ans3;
 
 	@FXML
-	private ImageView move4;
+	private ImageView ans4;
 
 	@FXML
 	private ImageView down;
@@ -37,7 +37,7 @@ public class KodableController {
 	private ImageView fuzzy;
 
 	@FXML
-	void click(MouseEvent event) {
+	void click(MouseEvent event) {// gets values for the move method
 
 		orgSceneX = event.getSceneX();
 		orgSceneY = event.getSceneY();
@@ -46,7 +46,7 @@ public class KodableController {
 	}
 
 	@FXML
-	void move(MouseEvent event) {
+	void move(MouseEvent event) {// makes clicked move able.
 		double offsetX = event.getSceneX() - orgSceneX;
 		double offsetY = event.getSceneY() - orgSceneY;
 		double newTranslateX = orgTranslateX + offsetX;
@@ -57,35 +57,45 @@ public class KodableController {
 	}
 
 	@FXML
-	void copy(MouseEvent event) {
-		if (move1.getImage() == null) {
+	void copy(MouseEvent event) {// used to set the user answers
+		if (ans1.getImage() == null) {
 
-			if (event.getSceneX() <= move1.getLayoutX() + 82 && event.getSceneX() >= move1.getLayoutX()
-					&& event.getSceneY() <= move1.getLayoutY() + 82 && event.getSceneY() >= move1.getLayoutY()) {
+			if (event.getSceneX() <= ans1.getLayoutX() + 82 && event.getSceneX() >= ans1.getLayoutX()
+					&& event.getSceneY() <= ans1.getLayoutY() + 82 && event.getSceneY() >= ans1.getLayoutY()) {
 
 				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
-				move1.setImage(img);
+				ans1.setImage(img);
 			}
-		} else if (move2.getImage() == null) {
-			if (event.getSceneX() <= move2.getLayoutX() + 82 && event.getSceneX() >= move2.getLayoutX()
-					&& event.getSceneY() <= move2.getLayoutY() + 82 && event.getSceneY() >= move2.getLayoutY()) {
+		} else if (ans2.getImage() == null) {
+			if (event.getSceneX() <= ans2.getLayoutX() + 82 && event.getSceneX() >= ans2.getLayoutX()
+					&& event.getSceneY() <= ans2.getLayoutY() + 82 && event.getSceneY() >= ans2.getLayoutY()) {
 
 				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
-				move2.setImage(img);
+				ans2.setImage(img);
 			}
-		} else if (move3.getImage() == null) {
-			if (event.getSceneX() <= move3.getLayoutX() + 82 && event.getSceneX() >= move3.getLayoutX()
-					&& event.getSceneY() <= move3.getLayoutY() + 82 && event.getSceneY() >= move3.getLayoutY()) {
+		} else if (ans3.getImage() == null) {
+			if (event.getSceneX() <= ans3.getLayoutX() + 82 && event.getSceneX() >= ans3.getLayoutX()
+					&& event.getSceneY() <= ans3.getLayoutY() + 82 && event.getSceneY() >= ans3.getLayoutY()) {
 
 				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
-				move3.setImage(img);
+				ans3.setImage(img);
+			}
+		} else if (ans4.getImage() == null) {
+			if (event.getSceneX() <= ans4.getLayoutX() + 82 && event.getSceneX() >= ans4.getLayoutX()
+					&& event.getSceneY() <= ans4.getLayoutY() + 82 && event.getSceneY() >= ans4.getLayoutY()) {
+
+				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
+				ans4.setImage(img);
 			}
 		}
 		resetArrows();
-	}// make method called reset
-		// make method for setting setImage
+	}
 
-	Image assignsImage(String dir) {
+	
+
+	
+
+	Image assignsImage(String dir) {// sets the image for assignment later
 
 		switch (dir) {
 		case "up":

@@ -11,10 +11,10 @@
             <Image url="@Level1Screen1%20AC.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="move2" fitHeight="82.0" fitWidth="82.0" layoutX="162.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="856.0" />
-      <ImageView fx:id="move3" fitHeight="82.0" fitWidth="82.0" layoutX="272.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="272.0" />
-      <ImageView fx:id="move4" fitHeight="100.0" fitWidth="100.0" layoutX="400.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="45.0" />
-      <ImageView fx:id="move1" fitHeight="82.0" fitWidth="82.0" layoutX="51.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans1" fitHeight="82.0" fitWidth="82.0" layoutX="51.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans2" fitHeight="82.0" fitWidth="82.0" layoutX="162.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans3" fitHeight="82.0" fitWidth="82.0" layoutX="272.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans4" fitHeight="82.0" fitWidth="82.0" layoutX="375.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" visible="false" />
       <ImageView fx:id="up" fitHeight="82.0" fitWidth="82.0" layoutX="793.0" layoutY="100.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Kodable%20arrow%20up.png" />
