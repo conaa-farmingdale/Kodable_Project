@@ -15,7 +15,7 @@ public class KodableMain extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("KodableDriverTemp.fxml"));
 		
-		Scene sn = new Scene(root,700,700);
+		Scene sn = new Scene(root,1100,800);
 		//sn.getStylesheets().add("mystyle.css");
 		primaryStage.setScene(sn);
 		primaryStage.show();

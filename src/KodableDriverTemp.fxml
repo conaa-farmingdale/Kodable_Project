@@ -1,63 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KodableController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KodableController">
    <children>
-      <SplitPane dividerPositions="0.2593123209169054" orientation="VERTICAL" prefHeight="700.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                   <SplitPane dividerPositions="0.5" prefHeight="178.0" prefWidth="698.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <ImageView fx:id="move1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="100.0" />
-                              <ImageView fx:id="move2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="200.0" />
-                              <ImageView fx:id="move3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="201.0" />
-                              <ImageView fx:id="move4" fitHeight="100.0" fitWidth="100.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="77.0" />
-                           </children>
-                        </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <ImageView fx:id="down" fitHeight="100.0" fitWidth="100.0" onMouseDragged="#move" onMousePressed="#click" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@DownArrowBtn.jpg" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="up" fitHeight="100.0" fitWidth="100.0" layoutX="101.0" onMouseDragged="#move" onMousePressed="#click" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@UpArrowBtn.jpg" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="left" fitHeight="100.0" fitWidth="100.0" layoutX="201.0" layoutY="5.0" onMouseDragged="#move" onMousePressed="#click" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@LeftArrowBtn.jpg" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="right" fitHeight="100.0" fitWidth="100.0" layoutX="201.0" layoutY="101.0" onMouseDragged="#move" onMousePressed="#click" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@RightArrowBtn.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
-                    </items>
-                  </SplitPane>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                  <ImageView fx:id="fuzzy" fitHeight="110.0" fitWidth="110.0" layoutX="7.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Spokes2.png" />
-                     </image>
-                  </ImageView>
-               </children></AnchorPane>
-        </items>
-      </SplitPane>
+      <ImageView fitHeight="800.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Level1Screen1%20AC.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="move2" fitHeight="82.0" fitWidth="82.0" layoutX="162.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="856.0" />
+      <ImageView fx:id="move3" fitHeight="82.0" fitWidth="82.0" layoutX="272.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="272.0" />
+      <ImageView fx:id="move4" fitHeight="100.0" fitWidth="100.0" layoutX="400.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="45.0" />
+      <ImageView fx:id="move1" fitHeight="82.0" fitWidth="82.0" layoutX="51.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="up" fitHeight="82.0" fitWidth="82.0" layoutX="793.0" layoutY="100.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Kodable%20arrow%20up.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="left" fitHeight="82.0" fitWidth="82.0" layoutX="957.0" layoutY="18.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Kodable%20arrow%20left.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="right" fitHeight="82.0" fitWidth="90.0" layoutX="875.0" layoutY="18.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Kodable%20arrow%20right.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="down" fitHeight="82.0" fitWidth="82.0" layoutX="793.0" layoutY="18.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Kodable%20arrow%20down.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fuzzy" fitHeight="110.0" fitWidth="110.0" layoutX="14.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Spokes2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
