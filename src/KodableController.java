@@ -91,10 +91,6 @@ public class KodableController {
 		resetArrows();
 	}
 
-	
-
-	
-
 	Image assignsImage(String dir) {// sets the image for assignment later
 
 		switch (dir) {
@@ -123,3 +119,4 @@ public class KodableController {
 		down.setTranslateX(-down.getX());
 		down.setTranslateY(-down.getY());
 	}
+}
