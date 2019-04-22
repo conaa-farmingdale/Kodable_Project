@@ -1,5 +1,7 @@
+import javafx.scene.paint.Color;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -43,6 +45,23 @@ public class KodableController {
 		orgSceneY = event.getSceneY();
 		orgTranslateX = ((Node) (event.getSource())).getTranslateX();
 		orgTranslateY = ((Node) (event.getSource())).getTranslateY();
+
+		switch (event.getPickResult().getIntersectedNode().getId().toLowerCase()) {
+		case "up":
+			up.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+			break;
+		case "left":
+			left.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+			break;
+		case "right":
+			right.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+			break;
+		case "down":
+			down.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+			break;
+		default:
+		}
+
 	}
 
 	@FXML
@@ -112,11 +131,18 @@ public class KodableController {
 	void resetArrows() {// moves arrows back to set location
 		left.setTranslateX(-left.getX());
 		left.setTranslateY(-left.getY());
+		left.setEffect(new DropShadow(0, Color.BLACK));
+
 		right.setTranslateX(-right.getX());
 		right.setTranslateY(-right.getY());
+		right.setEffect(new DropShadow(0, Color.BLACK));
+
 		up.setTranslateX(-up.getX());
 		up.setTranslateY(-up.getY());
+		up.setEffect(new DropShadow(0, Color.BLACK));
+
 		down.setTranslateX(-down.getX());
 		down.setTranslateY(-down.getY());
+		down.setEffect(new DropShadow(0, Color.BLACK));
 	}
 }
