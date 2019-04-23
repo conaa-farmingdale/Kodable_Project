@@ -34,6 +34,9 @@ public class KodableController {
 
 	@FXML
 	private ImageView right;
+	
+    @FXML
+    private ImageView play1;
 
 	@FXML
 	private ImageView fuzzy;
@@ -110,6 +113,10 @@ public class KodableController {
 		resetArrows();
 	}
 
+	
+
+	
+
 	Image assignsImage(String dir) {// sets the image for assignment later
 
 		switch (dir) {
@@ -145,4 +152,20 @@ public class KodableController {
 		down.setTranslateY(-down.getY());
 		down.setEffect(new DropShadow(0, Color.BLACK));
 	}
+	
+
+
+ 
+
+    @FXML
+    void playSelections(MouseEvent event) {
+    	
+    	// Need MouseEvent code here
+    	
+    	Button btnPlay = new Button("play");
+    }
+    	
+
+
+    }
 }
