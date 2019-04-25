@@ -18,6 +18,7 @@ public class KodableController {
 	double orgSceneX, orgSceneY;
 	double orgTranslateX, orgTranslateY;
 	int level;
+	String[]userAns = new String[10];// <------ Jeanne this is the sting I commented about
 
 	@FXML
 	private ImageView ans1;
@@ -99,31 +100,34 @@ public class KodableController {
 			if (event.getSceneX() <= ans1.getLayoutX() + 82 && event.getSceneX() >= ans1.getLayoutX()
 					&& event.getSceneY() <= ans1.getLayoutY() + 82 && event.getSceneY() >= ans1.getLayoutY()) {
 
-				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
+				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId());
 				ans1.setImage(img);
+				userAns[0] = event.getPickResult().getIntersectedNode().getId();//<------------------- Jeanne, this is where we are going to store the value of that array.
 				
 			}
 		} else if (ans2.getImage() == null) {
 			if (event.getSceneX() <= ans2.getLayoutX() + 82 && event.getSceneX() >= ans2.getLayoutX()
 					&& event.getSceneY() <= ans2.getLayoutY() + 82 && event.getSceneY() >= ans2.getLayoutY()) {
 
-				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
+				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId());
 				ans2.setImage(img);
+				userAns[1] = event.getPickResult().getIntersectedNode().getId();
 			}
 		} else if (ans3.getImage() == null) {
 			if (event.getSceneX() <= ans3.getLayoutX() + 82 && event.getSceneX() >= ans3.getLayoutX()
 					&& event.getSceneY() <= ans3.getLayoutY() + 82 && event.getSceneY() >= ans3.getLayoutY()) {
 
-				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
+				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId());
 				ans3.setImage(img);
+				userAns[2] = event.getPickResult().getIntersectedNode().getId();
 			}
 		} else if (ans4.getImage() == null) {
 			if (event.getSceneX() <= ans4.getLayoutX() + 82 && event.getSceneX() >= ans4.getLayoutX()
 					&& event.getSceneY() <= ans4.getLayoutY() + 82 && event.getSceneY() >= ans4.getLayoutY()) {
 
-				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
+				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId());
 				ans4.setImage(img);
-				
+				userAns[3] = event.getPickResult().getIntersectedNode().getId();
 			}
 		}
 		resetArrows();
@@ -169,7 +173,6 @@ public class KodableController {
 		down.setTranslateX(-down.getX());
 		down.setTranslateY(-down.getY());
 		down.setEffect(new DropShadow(0, Color.BLACK));
-
 	}
 
 	void nextLevel() throws IOException {// should be added after the animation of prior. level
