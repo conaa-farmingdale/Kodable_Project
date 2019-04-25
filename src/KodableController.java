@@ -64,18 +64,22 @@ public class KodableController {
 		orgTranslateX = ((Node) (event.getSource())).getTranslateX();
 		orgTranslateY = ((Node) (event.getSource())).getTranslateY();
 
-		switch (event.getPickResult().getIntersectedNode().getId()) {// adds drop shadow to the arrow being used. 
+		switch (event.getPickResult().getIntersectedNode().getId()) {// adds drop shadow to the arrow being used and moves them to the front making them on top. 
 		case "up":
 			up.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+			up.toFront();
 			break;
 		case "left":
 			left.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+			left.toFront();
 			break;
 		case "right":
 			right.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+			right.toFront();
 			break;
 		case "down":
 			down.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+			down.toFront();
 			break;
 		default:
 		}
@@ -137,6 +141,17 @@ public class KodableController {
 //			e.printStackTrace();
 //		}
 	}
+	
+	
+	  @FXML
+	    void play(MouseEvent event) {
+		  
+	    }
+	  
+	  @FXML
+	    void clear(MouseEvent event) {
+
+	    }
 
 	Image assignsImage(String dir) {// sets the image for assignment into the user answers
 
