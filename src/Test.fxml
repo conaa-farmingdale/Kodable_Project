@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KodableController">
    <children>
-      <ImageView fx:id="level1" fitHeight="800.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level2" fitHeight="800.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Level1Screen1%20AC.jpg" />
          </image>
@@ -35,10 +35,5 @@
             <Image url="@Kodable%20arrow%20down.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fuzzy" fitHeight="110.0" fitWidth="110.0" layoutX="14.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Spokes2.png" />
-         </image>
-      </ImageView>
-   </children>
+      </children>
 </AnchorPane>

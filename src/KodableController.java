@@ -1,6 +1,13 @@
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -10,6 +17,7 @@ public class KodableController {
 
 	double orgSceneX, orgSceneY;
 	double orgTranslateX, orgTranslateY;
+	int level;
 
 	@FXML
 	private ImageView ans1;
@@ -37,7 +45,16 @@ public class KodableController {
 
 	@FXML
 	private ImageView fuzzy;
+	
+	@FXML
+	private ImageView level1;
 
+	@FXML
+	private ImageView level2;
+	
+	@FXML
+	private ImageView level3;
+	
 	@FXML
 	void click(MouseEvent event) {// gets values for the move method
 
@@ -84,6 +101,7 @@ public class KodableController {
 
 				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
 				ans1.setImage(img);
+				
 			}
 		} else if (ans2.getImage() == null) {
 			if (event.getSceneX() <= ans2.getLayoutX() + 82 && event.getSceneX() >= ans2.getLayoutX()
@@ -105,9 +123,16 @@ public class KodableController {
 
 				Image img = assignsImage(event.getPickResult().getIntersectedNode().getId().toLowerCase());
 				ans4.setImage(img);
+				
 			}
 		}
 		resetArrows();
+		try {
+			nextLevel();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	Image assignsImage(String dir) {// sets the image for assignment later
@@ -144,5 +169,29 @@ public class KodableController {
 		down.setTranslateX(-down.getX());
 		down.setTranslateY(-down.getY());
 		down.setEffect(new DropShadow(0, Color.BLACK));
+
+	}
+
+	void nextLevel() throws IOException {// should be added after the animation of prior. level
+															// finishes.
+		if (level1 != null) {
+			Parent par = FXMLLoader.load(getClass().getResource("Test.fxml"));
+			Scene sn = new Scene(par);
+			Stage stage = (Stage) ((Node) level1).getScene().getWindow();// this line creates the new stage
+			stage.setScene(sn);
+			stage.show();
+		} else if (level2 != null) {
+			Parent par = FXMLLoader.load(getClass().getResource("Test2.fxml"));
+			Scene sn = new Scene(par);
+			Stage stage = (Stage) ((Node) level2).getScene().getWindow();// this line creates the new stage
+			stage.setScene(sn);
+			stage.show();
+		}else if (level3 != null) {
+			Parent par = FXMLLoader.load(getClass().getResource("KodableDriverTemp.fxml"));
+			Scene sn = new Scene(par);
+			Stage stage = (Stage) ((Node) level3).getScene().getWindow();// this line creates the new stage
+			stage.setScene(sn);
+			stage.show();
+		}
 	}
 }
