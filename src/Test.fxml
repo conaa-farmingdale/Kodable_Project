@@ -1,37 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KodableController">
    <children>
-      <ImageView fx:id="level1" fitHeight="800.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level2" fitHeight="800.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Level1Screen1%20AC.jpg" />
          </image>
-      </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="667.0" layoutY="1.0" onMousePressed="#play" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@play.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
-      </ImageView>
-      <ImageView fx:id="fuzzy" fitHeight="110.0" fitWidth="110.0" layoutX="14.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Spokes2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="108.0" fitWidth="100.0" layoutX="667.0" layoutY="103.0" onMousePressed="#clear" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@red-clear-button-vector-22798006.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
       </ImageView>
       <ImageView fx:id="ans1" fitHeight="82.0" fitWidth="82.0" layoutX="51.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ans2" fitHeight="82.0" fitWidth="82.0" layoutX="162.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
@@ -41,33 +19,21 @@
          <image>
             <Image url="@Kodable%20arrow%20up.png" />
          </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </ImageView>
       <ImageView fx:id="left" fitHeight="82.0" fitWidth="82.0" layoutX="957.0" layoutY="18.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Kodable%20arrow%20left.png" />
          </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </ImageView>
       <ImageView fx:id="right" fitHeight="82.0" fitWidth="90.0" layoutX="875.0" layoutY="18.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Kodable%20arrow%20right.png" />
          </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </ImageView>
       <ImageView fx:id="down" fitHeight="82.0" fitWidth="82.0" layoutX="793.0" layoutY="18.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Kodable%20arrow%20down.png" />
          </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </ImageView>
-   </children>
+      </children>
 </AnchorPane>
