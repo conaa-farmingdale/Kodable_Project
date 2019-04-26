@@ -189,23 +189,20 @@ public class KodableController {
 		down.setEffect(new DropShadow(0, Color.BLACK));
 	}
 	
-	@FXML
-	boolean check () {
+	boolean check() {
 	
 	String level1[] = new String[3];
-	String userAns[] = new String[0];
 	
-	for (int i=0; i<level1.length; i++) {
+		for (int i = 0; i < level1.length; i++) {
+			if (!userAns[i].equals(level1[i])) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+		return false;
+	}
 	
-	if(!userAns[i].equals(level1[i])) {
-	return false;
-	    }
-	else {
-		return true;
-	}
-	}
-	return false;
-
 	void nextLevel() throws IOException {// Moves to the next level by loading the fxml file based on which level is currently being played. // should be added after the animation of prior. level
 															// finishes.
 		if (level1 != null) {// checks to see which level currently has a value, all other levels should not have a value. 
@@ -229,4 +226,4 @@ public class KodableController {
 		}
 	}
 }
-}
+
