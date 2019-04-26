@@ -62,6 +62,22 @@ public class KodableController {
 
 	}
 	
+	@FXML
+	boolean check () {
 	
+	String level1[] = new String[3];
+	String userAns[] = new String[0];
+	
+	for (int i=0; i<level1.length; i++) {
+	
+	if(!userAns[i].equals(level1[i])) {
+	return false;
+	    }
+	else {
+		return true;
+	}
+	}
+	return false;
 
+}
 }
