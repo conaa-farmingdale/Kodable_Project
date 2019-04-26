@@ -188,6 +188,23 @@ public class KodableController {
 		down.setTranslateY(-down.getY());
 		down.setEffect(new DropShadow(0, Color.BLACK));
 	}
+	
+	@FXML
+	boolean check () {
+	
+	String level1[] = new String[3];
+	String userAns[] = new String[0];
+	
+	for (int i=0; i<level1.length; i++) {
+	
+	if(!userAns[i].equals(level1[i])) {
+	return false;
+	    }
+	else {
+		return true;
+	}
+	}
+	return false;
 
 	void nextLevel() throws IOException {// Moves to the next level by loading the fxml file based on which level is currently being played. // should be added after the animation of prior. level
 															// finishes.
@@ -211,4 +228,5 @@ public class KodableController {
 			stage.show();
 		}
 	}
+}
 }
