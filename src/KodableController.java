@@ -17,6 +17,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 public class KodableController {
 
@@ -78,6 +79,12 @@ public class KodableController {
 
 	@FXML
 	private ImageView level9;
+	
+	@FXML
+    private Pane congrats;
+
+    @FXML
+    private Pane sorry;
 
 	@FXML
 	void click(MouseEvent event) {// gets values for the move method
@@ -283,8 +290,10 @@ public class KodableController {
 		 //ans5.setImage(null);
 		 //ans6.setImage(null);
 		 //ans7.setImage(null);
+		 sorry.setVisible(false);
+		 congrats.setVisible(false);
 		
-		//String[] userAns = { "0", "1", "2", "3", "4", "5", "6" };
+		String[] userAns = { "0", "1", "2", "3", "4", "5", "6" };
 	}
 
 	Image assignsImage(String dir) {// sets the image for assignment into the user answers
