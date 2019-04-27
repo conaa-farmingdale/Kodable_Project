@@ -81,7 +81,6 @@ public class KodableController {
 
 	@FXML
 	void clear(MouseEvent event) {
-
 	}
 	
 	@FXML
@@ -267,6 +266,12 @@ public class KodableController {
 		}
 	}
 
+
+    @FXML
+    void quit(MouseEvent event) {
+
+    }
+	
 	ParallelTransition setParMove(int x, int y, int r) {// sets individual ParallelTransitioin to move the Fuzzy.
 														// Implemented by Matt
 		Duration duration = Duration.seconds(1);
@@ -324,7 +329,8 @@ public class KodableController {
 		return true;
 	}
 
-	void nextLevel() throws IOException {// Moves to the next level by loading the fxml file based on which level is
+	@FXML
+    void nextLevel(MouseEvent event) throws IOException {// Moves to the next level by loading the fxml file based on which level is
 											// currently being played. // should be added after the animation of prior.
 											// level
 											// finishes.
