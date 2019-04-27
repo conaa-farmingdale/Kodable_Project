@@ -275,8 +275,16 @@ public class KodableController {
 	}
 
 	@FXML
-	void clear(MouseEvent event) {
-
+	void clear(MouseEvent event) {  //clears input from userAns array and resets them to starting values
+		 ans1.setImage(null);
+		 ans2.setImage(null);
+		 ans3.setImage(null);
+		 ans4.setImage(null);
+		 //ans5.setImage(null);
+		 //ans6.setImage(null);
+		 //ans7.setImage(null);
+		
+		//String[] userAns = { "0", "1", "2", "3", "4", "5", "6" };
 	}
 
 	Image assignsImage(String dir) {// sets the image for assignment into the user answers
