@@ -9,7 +9,7 @@
    <children>
       <ImageView fx:id="level1" fitHeight="800.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Level1Screen1%20AC.jpg" />
+            <Image url="@Area1Level1.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="667.0" layoutY="1.0" onMousePressed="#play" pickOnBounds="true" preserveRatio="true">
@@ -20,22 +20,22 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="fuzzy" fitHeight="110.0" fitWidth="110.0" layoutX="14.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fuzzy" fitHeight="110.0" fitWidth="110.0" layoutX="13.0" layoutY="519.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Spokes2.png" />
+            <Image url="@Fuzzy.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="108.0" fitWidth="100.0" layoutX="667.0" layoutY="103.0" onMousePressed="#clear" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@red-clear-button-vector-22798006.png" />
+            <Image url="@clear.png" />
          </image>
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="ans1" fitHeight="82.0" fitWidth="82.0" layoutX="51.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ans2" fitHeight="82.0" fitWidth="82.0" layoutX="162.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ans3" fitHeight="82.0" fitWidth="82.0" layoutX="272.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans1" fitHeight="82.0" fitWidth="82.0" layoutX="56.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans2" fitHeight="82.0" fitWidth="82.0" layoutX="165.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans3" fitHeight="82.0" fitWidth="82.0" layoutX="278.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ans4" fitHeight="82.0" fitWidth="82.0" layoutX="375.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" visible="false" />
       <ImageView fx:id="up" fitHeight="82.0" fitWidth="82.0" layoutX="793.0" layoutY="100.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
          <image>

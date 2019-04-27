@@ -80,6 +80,11 @@ public class KodableController {
 	private ImageView level9;
 
 	@FXML
+	void clear(MouseEvent event) {
+
+	}
+	
+	@FXML
 	void click(MouseEvent event) {// gets values for the move method
 
 		orgSceneX = event.getSceneX();
@@ -108,17 +113,6 @@ public class KodableController {
 		default:
 		}
 
-	}
-
-	@FXML
-	void move(MouseEvent event) {// makes clicked object move-able.
-		double offsetX = event.getSceneX() - orgSceneX;
-		double offsetY = event.getSceneY() - orgSceneY;
-		double newTranslateX = orgTranslateX + offsetX;
-		double newTranslateY = orgTranslateY + offsetY;
-
-		((Node) (event.getSource())).setTranslateX(newTranslateX);
-		((Node) (event.getSource())).setTranslateY(newTranslateY);
 	}
 
 	@FXML
@@ -161,9 +155,20 @@ public class KodableController {
 		resetArrows();
 		
 	}
+	
+	@FXML
+	void move(MouseEvent event) {// makes clicked object move-able.
+		double offsetX = event.getSceneX() - orgSceneX;
+		double offsetY = event.getSceneY() - orgSceneY;
+		double newTranslateX = orgTranslateX + offsetX;
+		double newTranslateY = orgTranslateY + offsetY;
+
+		((Node) (event.getSource())).setTranslateX(newTranslateX);
+		((Node) (event.getSource())).setTranslateY(newTranslateY);
+	}
 
 	@FXML
-	void play(MouseEvent event) {// When play is clicked this checks the level, then the given array and if its
+	void play(MouseEvent event) throws IOException {// When play is clicked this checks the level, then the given array and if its
 									// correct moves the fuzzy. Implemented by Matt
 
 		if (level1 != null) {
@@ -173,7 +178,6 @@ public class KodableController {
 				SequentialTransition lvl1 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -1, 1),
 						setParMove(6, 0, 6));
 				lvl1.play();
-
 			} else {
 				System.out.println("ERROR");
 			}
@@ -274,11 +278,6 @@ public class KodableController {
 		return new ParallelTransition(move, rotate);
 	}
 
-	@FXML
-	void clear(MouseEvent event) {
-
-	}
-
 	Image assignsImage(String dir) {// sets the image for assignment into the user answers
 
 		switch (dir) {
@@ -331,21 +330,21 @@ public class KodableController {
 											// finishes.
 		if (level1 != null) {// checks to see which level currently has a value, all other levels should not
 								// have a value.
-			Parent par = FXMLLoader.load(getClass().getResource("Test.fxml"));// needs to be replaced with level2 fxml
+			Parent par = FXMLLoader.load(getClass().getResource("Level_1.fxml"));// needs to be replaced with level2 fxml
 			Scene sn = new Scene(par);
-			Stage stage = (Stage) ((Node) level1).getScene().getWindow();
+			Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
 			stage.setScene(sn);
 			stage.show();
 		} else if (level2 != null) {
 			Parent par = FXMLLoader.load(getClass().getResource("Test2.fxml"));// needs to be replaced with level3 fxml
 			Scene sn = new Scene(par);
-			Stage stage = (Stage) ((Node) level2).getScene().getWindow();
+			Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
 			stage.setScene(sn);
 			stage.show();
 		} else if (level3 != null) {
 			Parent par = FXMLLoader.load(getClass().getResource("KodableDriverTemp.fxml"));// needs to be...
 			Scene sn = new Scene(par);
-			Stage stage = (Stage) ((Node) level3).getScene().getWindow();
+			Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
 			stage.setScene(sn);
 			stage.show();
 		}
