@@ -17,6 +17,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 public class KodableController {
 
@@ -78,11 +79,13 @@ public class KodableController {
 
 	@FXML
 	private ImageView level9;
-
-	@FXML
-	void clear(MouseEvent event) {
-	}
 	
+	@FXML
+    private Pane congrats;
+
+    @FXML
+    private Pane sorry;
+
 	@FXML
 	void click(MouseEvent event) {// gets values for the move method
 
@@ -177,8 +180,9 @@ public class KodableController {
 				SequentialTransition lvl1 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -1, 1),
 						setParMove(6, 0, 6));
 				lvl1.play();
+				lvl1.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		} else if (level2 != null) {
 			String levelAns[] = { "right", "down", "right", "down", "right", "down", "right" };
@@ -188,8 +192,9 @@ public class KodableController {
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(3, 0, 3), setParMove(0, 1, 1),
 						setParMove(2, 0, 2));
 				lvl2.play();
+				lvl2.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		} else if (level3 != null) {
 			String levelAns[] = { "up", "right", "up", "right", "down", "right" };
@@ -198,8 +203,9 @@ public class KodableController {
 				SequentialTransition lvl3 = new SequentialTransition(setParMove(0, -2, 2), setParMove(1, 0, 1),
 						setParMove(0, -1, 1), setParMove(2, 0, 2), setParMove(0, 3, 3), setParMove(4, 0, 4));
 				lvl3.play();
+				lvl3.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		} else if (level4 != null) {
 			String levelAns[] = { "down", "right", "up", "right" };
@@ -208,8 +214,9 @@ public class KodableController {
 				SequentialTransition lvl4 = new SequentialTransition(setParMove(0, 2, 2), setParMove(4, 0, 4),
 						setParMove(0, -1, 1), setParMove(3, 0, 3));
 				lvl4.play();
+				lvl4.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		} else if (level5 != null) {
 			String levelAns[] = { "right", "down", "right", "up", "right" };
@@ -218,8 +225,9 @@ public class KodableController {
 				SequentialTransition lvl5 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 1, 1),
 						setParMove(3, 0, 3), setParMove(0, -3, 3), setParMove(2, 0, 2));
 				lvl5.play();
+				lvl5.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		} else if (level6 != null) {
 			String levelAns[] = { "right", "up", "right", "up", "right" };
@@ -228,8 +236,9 @@ public class KodableController {
 				SequentialTransition lvl6 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -2, 2),
 						setParMove(4, 0, 4), setParMove(0, -1, 1), setParMove(2, 0, 2));
 				lvl6.play();
+				lvl6.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		} else if (level7 != null) {
 			String levelAns[] = { "right", "up", "right", "down", "right" };
@@ -238,8 +247,9 @@ public class KodableController {
 				SequentialTransition lvl7 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -2, 2),
 						setParMove(2, 0, 2), setParMove(0, 2, 2), setParMove(3, 0, 3));
 				lvl7.play();
+				lvl7.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		} else if (level8 != null) {
 			String levelAns[] = { "right", "up", "right", "up", "right", "down", "right" };
@@ -249,8 +259,9 @@ public class KodableController {
 						setParMove(1, 0, 1), setParMove(0, -1, 1), setParMove(3, 0, 3), setParMove(0, 2, 2),
 						setParMove(2, 0, 2));
 				lvl8.play();
+				lvl8.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		} else if (level9 != null) {
 			String levelAns[] = { "right", "down", "right", "down", "right", "up", "right" };
@@ -260,8 +271,9 @@ public class KodableController {
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(2, 0, 2), setParMove(0, -2, 2),
 						setParMove(2, 0, 2));
 				lvl9.play();
+				lvl9.setOnFinished(e -> congrats.setVisible(true));
 			} else {
-				System.out.println("ERROR");
+				sorry.setVisible(true);
 			}
 		}
 	}
@@ -281,6 +293,21 @@ public class KodableController {
 		move.setByY(138 * y);
 		rotate.setByAngle(360 * r);
 		return new ParallelTransition(move, rotate);
+	}
+
+	@FXML
+	void clear(MouseEvent event) {  //clears input from userAns array and resets them to starting values
+		 ans1.setImage(null);
+		 ans2.setImage(null);
+		 ans3.setImage(null);
+		 //ans4.setImage(null);
+		 //ans5.setImage(null);
+		 //ans6.setImage(null);
+		 //ans7.setImage(null);
+		 sorry.setVisible(false);
+		 congrats.setVisible(false);
+		
+		String[] userAns = { "0", "1", "2", "3", "4", "5", "6" };
 	}
 
 	Image assignsImage(String dir) {// sets the image for assignment into the user answers
@@ -317,7 +344,9 @@ public class KodableController {
 		down.setTranslateX(-down.getX());
 		down.setTranslateY(-down.getY());
 		down.setEffect(new DropShadow(0, Color.BLACK));
-	}
+		congrats.toFront();
+        sorry.toFront();
+        }
 
 	boolean check(String array[]) {
 		
