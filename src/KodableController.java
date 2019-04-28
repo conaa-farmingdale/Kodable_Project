@@ -180,6 +180,7 @@ public class KodableController {
 				SequentialTransition lvl1 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -1, 1),
 						setParMove(6, 0, 6));
 				lvl1.play();
+				lvl1.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -191,6 +192,7 @@ public class KodableController {
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(3, 0, 3), setParMove(0, 1, 1),
 						setParMove(2, 0, 2));
 				lvl2.play();
+				lvl2.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -201,6 +203,7 @@ public class KodableController {
 				SequentialTransition lvl3 = new SequentialTransition(setParMove(0, -2, 2), setParMove(1, 0, 1),
 						setParMove(0, -1, 1), setParMove(2, 0, 2), setParMove(0, 3, 3), setParMove(4, 0, 4));
 				lvl3.play();
+				lvl3.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -211,6 +214,7 @@ public class KodableController {
 				SequentialTransition lvl4 = new SequentialTransition(setParMove(0, 2, 2), setParMove(4, 0, 4),
 						setParMove(0, -1, 1), setParMove(3, 0, 3));
 				lvl4.play();
+				lvl4.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -221,6 +225,7 @@ public class KodableController {
 				SequentialTransition lvl5 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 1, 1),
 						setParMove(3, 0, 3), setParMove(0, -3, 3), setParMove(2, 0, 2));
 				lvl5.play();
+				lvl5.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -231,6 +236,7 @@ public class KodableController {
 				SequentialTransition lvl6 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -2, 2),
 						setParMove(4, 0, 4), setParMove(0, -1, 1), setParMove(2, 0, 2));
 				lvl6.play();
+				lvl6.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -241,6 +247,7 @@ public class KodableController {
 				SequentialTransition lvl7 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -2, 2),
 						setParMove(2, 0, 2), setParMove(0, 2, 2), setParMove(3, 0, 3));
 				lvl7.play();
+				lvl7.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -252,6 +259,7 @@ public class KodableController {
 						setParMove(1, 0, 1), setParMove(0, -1, 1), setParMove(3, 0, 3), setParMove(0, 2, 2),
 						setParMove(2, 0, 2));
 				lvl8.play();
+				lvl8.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -263,6 +271,7 @@ public class KodableController {
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(2, 0, 2), setParMove(0, -2, 2),
 						setParMove(2, 0, 2));
 				lvl9.play();
+				lvl9.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -291,7 +300,7 @@ public class KodableController {
 		 ans1.setImage(null);
 		 ans2.setImage(null);
 		 ans3.setImage(null);
-		 ans4.setImage(null);
+		 //ans4.setImage(null);
 		 //ans5.setImage(null);
 		 //ans6.setImage(null);
 		 //ans7.setImage(null);
@@ -335,7 +344,9 @@ public class KodableController {
 		down.setTranslateX(-down.getX());
 		down.setTranslateY(-down.getY());
 		down.setEffect(new DropShadow(0, Color.BLACK));
-	}
+		congrats.toFront();
+        sorry.toFront();
+        }
 
 	boolean check(String array[]) {
 		

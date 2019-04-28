@@ -13,7 +13,7 @@
    <children>
       <ImageView fx:id="level1" fitHeight="800.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Area1Level1.jpg" />
+            <Image url="@Area1Level2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="667.0" layoutY="1.0" onMousePressed="#play" pickOnBounds="true" preserveRatio="true">
@@ -37,13 +37,13 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="ans1" fitHeight="82.0" fitWidth="82.0" layoutX="56.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ans2" fitHeight="82.0" fitWidth="82.0" layoutX="165.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ans3" fitHeight="82.0" fitWidth="82.0" layoutX="278.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ans4" fitHeight="82.0" fitWidth="82.0" layoutX="440.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <ImageView fx:id="ans5" fitHeight="82.0" fitWidth="82.0" layoutX="450.0" layoutY="584.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <ImageView fx:id="ans6" fitHeight="82.0" fitWidth="82.0" layoutX="460.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <ImageView fx:id="ans7" fitHeight="82.0" fitWidth="82.0" layoutX="470.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="ans1" fitHeight="82.0" fitWidth="82.0" layoutX="20.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans2" fitHeight="82.0" fitWidth="82.0" layoutX="108.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans3" fitHeight="82.0" fitWidth="82.0" layoutX="196.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans4" fitHeight="82.0" fitWidth="82.0" layoutX="285.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans5" fitHeight="82.0" fitWidth="82.0" layoutX="373.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans6" fitHeight="82.0" fitWidth="82.0" layoutX="460.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ans7" fitHeight="82.0" fitWidth="82.0" layoutX="550.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="up" fitHeight="82.0" fitWidth="82.0" layoutX="793.0" layoutY="100.0" onMouseDragged="#move" onMousePressed="#click" onMouseReleased="#copy" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Kodable%20arrow%20up.png" />
@@ -92,7 +92,7 @@
                   <Font name="System Bold" size="45.0" />
                </font>
             </Button>
-            <Label layoutX="179.0" layoutY="86.0" prefHeight="162.0" prefWidth="743.0" text="Congradulations!" textFill="#00ff37">
+            <Label layoutX="179.0" layoutY="86.0" prefHeight="162.0" prefWidth="743.0" text="Congratulations!" textFill="#00ff37">
                <font>
                   <Font size="96.0" />
                </font>
