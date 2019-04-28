@@ -37,6 +37,15 @@ public class KodableController {
 
 	@FXML
 	private ImageView ans4;
+	
+	@FXML
+	private ImageView ans5;
+	
+	@FXML
+	private ImageView ans6;
+	
+	@FXML
+	private ImageView ans7;
 
 	@FXML
 	private ImageView down;
@@ -152,6 +161,30 @@ public class KodableController {
 				
 				ans4.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[3] = event.getPickResult().getIntersectedNode().getId();
+			}
+		} else if (ans5.getImage() == null) { // below Implemented by Matt, having issues with github
+			if (event.getSceneX() <= ans5.getLayoutX() + ans5.getFitWidth() && event.getSceneX() >= ans5.getLayoutX()
+					&& event.getSceneY() <= ans5.getLayoutY() + ans5.getFitHeight()
+					&& event.getSceneY() >= ans5.getLayoutY()) {
+				
+				ans5.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
+				userAns[4] = event.getPickResult().getIntersectedNode().getId();
+			}
+		} else if (ans6.getImage() == null) {
+			if (event.getSceneX() <= ans6.getLayoutX() + ans6.getFitWidth() && event.getSceneX() >= ans6.getLayoutX()
+					&& event.getSceneY() <= ans6.getLayoutY() + ans6.getFitHeight()
+					&& event.getSceneY() >= ans6.getLayoutY()) {
+				
+				ans6.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
+				userAns[5] = event.getPickResult().getIntersectedNode().getId();
+			}
+		} else if (ans7.getImage() == null) {
+			if (event.getSceneX() <= ans7.getLayoutX() + ans7.getFitWidth() && event.getSceneX() >= ans7.getLayoutX()
+					&& event.getSceneY() <= ans7.getLayoutY() + ans7.getFitHeight()
+					&& event.getSceneY() >= ans7.getLayoutY()) {
+				
+				ans7.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
+				userAns[6] = event.getPickResult().getIntersectedNode().getId();
 			}
 		}
 		resetArrows();
