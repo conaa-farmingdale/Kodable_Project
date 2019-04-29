@@ -314,7 +314,7 @@ public class KodableController {
 
 	@FXML
 	void quit(MouseEvent event) {
-
+		System.exit(0);
 	}
 
 	ParallelTransition setParMove(int x, int y, int r) {// sets individual ParallelTransitioin to move the Fuzzy.
