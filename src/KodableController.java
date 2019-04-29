@@ -37,13 +37,13 @@ public class KodableController {
 
 	@FXML
 	private ImageView ans4;
-	
+
 	@FXML
 	private ImageView ans5;
-	
+
 	@FXML
 	private ImageView ans6;
-	
+
 	@FXML
 	private ImageView ans7;
 
@@ -88,12 +88,12 @@ public class KodableController {
 
 	@FXML
 	private ImageView level9;
-	
-	@FXML
-    private Pane congrats;
 
-    @FXML
-    private Pane sorry;
+	@FXML
+	private Pane congrats;
+
+	@FXML
+	private Pane sorry;
 
 	@FXML
 	void click(MouseEvent event) {// gets values for the move method
@@ -158,7 +158,7 @@ public class KodableController {
 			if (event.getSceneX() <= ans4.getLayoutX() + ans4.getFitWidth() && event.getSceneX() >= ans4.getLayoutX()
 					&& event.getSceneY() <= ans4.getLayoutY() + ans4.getFitHeight()
 					&& event.getSceneY() >= ans4.getLayoutY()) {
-				
+
 				ans4.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[3] = event.getPickResult().getIntersectedNode().getId();
 			}
@@ -166,7 +166,7 @@ public class KodableController {
 			if (event.getSceneX() <= ans5.getLayoutX() + ans5.getFitWidth() && event.getSceneX() >= ans5.getLayoutX()
 					&& event.getSceneY() <= ans5.getLayoutY() + ans5.getFitHeight()
 					&& event.getSceneY() >= ans5.getLayoutY()) {
-				
+
 				ans5.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[4] = event.getPickResult().getIntersectedNode().getId();
 			}
@@ -174,7 +174,7 @@ public class KodableController {
 			if (event.getSceneX() <= ans6.getLayoutX() + ans6.getFitWidth() && event.getSceneX() >= ans6.getLayoutX()
 					&& event.getSceneY() <= ans6.getLayoutY() + ans6.getFitHeight()
 					&& event.getSceneY() >= ans6.getLayoutY()) {
-				
+
 				ans6.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[5] = event.getPickResult().getIntersectedNode().getId();
 			}
@@ -182,15 +182,15 @@ public class KodableController {
 			if (event.getSceneX() <= ans7.getLayoutX() + ans7.getFitWidth() && event.getSceneX() >= ans7.getLayoutX()
 					&& event.getSceneY() <= ans7.getLayoutY() + ans7.getFitHeight()
 					&& event.getSceneY() >= ans7.getLayoutY()) {
-				
+
 				ans7.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[6] = event.getPickResult().getIntersectedNode().getId();
 			}
 		}
 		resetArrows();
-		
+
 	}
-	
+
 	@FXML
 	void move(MouseEvent event) {// makes clicked object move-able.
 		double offsetX = event.getSceneX() - orgSceneX;
@@ -203,8 +203,9 @@ public class KodableController {
 	}
 
 	@FXML
-	void play(MouseEvent event) throws IOException {// When play is clicked this checks the level, then the given array and if its
-									// correct moves the fuzzy. Implemented by Matt
+	void play(MouseEvent event) throws IOException {// When play is clicked this checks the level, then the given array
+													// and if its
+		// correct moves the fuzzy. Implemented by Matt
 
 		if (level1 != null) {
 			String levelAns[] = { "right", "up", "right" };
@@ -311,12 +312,11 @@ public class KodableController {
 		}
 	}
 
+	@FXML
+	void quit(MouseEvent event) {
 
-    @FXML
-    void quit(MouseEvent event) {
+	}
 
-    }
-	
 	ParallelTransition setParMove(int x, int y, int r) {// sets individual ParallelTransitioin to move the Fuzzy.
 														// Implemented by Matt
 		Duration duration = Duration.seconds(1);
@@ -329,17 +329,17 @@ public class KodableController {
 	}
 
 	@FXML
-	void clear(MouseEvent event) {  //clears input from userAns array and resets them to starting values
-		 ans1.setImage(null);
-		 ans2.setImage(null);
-		 ans3.setImage(null);
-		 ans4.setImage(null);
-		 ans5.setImage(null);
-		 ans6.setImage(null);
-		 ans7.setImage(null);
-		 sorry.setVisible(false);
-		 congrats.setVisible(false);
-		
+	void clear(MouseEvent event) { // clears input from userAns array and resets them to starting values
+		ans1.setImage(null);
+		ans2.setImage(null);
+		ans3.setImage(null);
+		ans4.setImage(null);
+		ans5.setImage(null);
+		ans6.setImage(null);
+		ans7.setImage(null);
+		sorry.setVisible(false);
+		congrats.setVisible(false);
+
 		for (int i = 0; i < userAns.length; i++) {
 			userAns[i] = "1";
 		}
@@ -380,43 +380,52 @@ public class KodableController {
 		down.setTranslateY(-down.getY());
 		down.setEffect(new DropShadow(0, Color.BLACK));
 		congrats.toFront();
-        sorry.toFront();
-        }
+		sorry.toFront();
+	}
 
 	boolean check(String array[]) {
-		
+
 		for (int i = 0; i < array.length; i++) {
 			if (!userAns[i].equals(array[i])) {
 				return false;
-			} 
+			}
 		}
 		return true;
 	}
 
 	@FXML
-    void nextLevel(MouseEvent event) throws IOException {// Moves to the next level by loading the fxml file based on which level is
-											// currently being played. // should be added after the animation of prior.
-											// level
-											// finishes.
+	void nextLevel(MouseEvent event) throws IOException {// Moves to the next level by loading the fxml file based on
+															// which level is
+		// currently being played. // should be added after the animation of prior.
+		// level
+		// finishes.
 		if (level1 != null) {// checks to see which level currently has a value, all other levels should not
 								// have a value.
-			Parent par = FXMLLoader.load(getClass().getResource("Level_1.fxml"));// needs to be replaced with level2 fxml
-			Scene sn = new Scene(par);
-			Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
-			stage.setScene(sn);
-			stage.show();
+			levelSelect("Level_2.fxml");
 		} else if (level2 != null) {
-			Parent par = FXMLLoader.load(getClass().getResource("Test2.fxml"));// needs to be replaced with level3 fxml
-			Scene sn = new Scene(par);
-			Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
-			stage.setScene(sn);
-			stage.show();
+			levelSelect("Level_3.fxml");
 		} else if (level3 != null) {
-			Parent par = FXMLLoader.load(getClass().getResource("KodableDriverTemp.fxml"));// needs to be...
-			Scene sn = new Scene(par);
-			Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
-			stage.setScene(sn);
-			stage.show();
+			levelSelect("Level_4.fxml");
+		} else if (level4 != null) {
+			levelSelect("Level_5.fxml");
+		} else if (level5 != null) {
+			levelSelect("Level_6.fxml");
+		} else if (level6 != null) {
+			levelSelect("Level_7.fxml");
+		} else if (level7 != null) {
+			levelSelect("Level_8.fxml");
+		} else if (level8 != null) {
+			levelSelect("Level_9.fxml");
+		} else if (level9 != null) {
+//			levelSelect("Level_$.fxml"); <--- should think about an end card or thank you for playing card
 		}
+	}
+
+	void levelSelect(String level) throws IOException {
+		Parent par = FXMLLoader.load(getClass().getResource(level));// needs to be replaced with level2 fxml
+		Scene sn = new Scene(par);
+		Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
+		stage.setScene(sn);
+		stage.show();
 	}
 }
