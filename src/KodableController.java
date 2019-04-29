@@ -337,8 +337,7 @@ public class KodableController {
 		} else if (level8 != null) {
 			levelSelect("Level_9.fxml");
 		} else if (level9 != null) {
-			// levelSelect("Level_$.fxml"); <--- should think about an end card or thank you
-			// for playing card
+			levelSelect("Level_1.fxml"); 
 		}
 	}
 
