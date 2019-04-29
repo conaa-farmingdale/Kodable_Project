@@ -219,12 +219,12 @@ public class KodableController {
 				sorry.setVisible(true);
 			}
 		} else if (level2 != null) {
-			String levelAns[] = { "right", "down", "right", "down", "right", "down", "right" };
+			String levelAns[] = { "right", "up", "right", "up", "right", "down", "right" };
 
 			if (check(levelAns)) {
-				SequentialTransition lvl2 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, 1, 1),
-						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(3, 0, 3), setParMove(0, 1, 1),
-						setParMove(2, 0, 2));
+				SequentialTransition lvl2 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -1, 1),
+						setParMove(1, 0, 1), setParMove(0, -1, 1), setParMove(3, 0, 3), setParMove(0, 2, 2),
+						setParMove(3, 0, 3));
 				lvl2.play();
 				lvl2.setOnFinished(e -> congrats.setVisible(true));
 			} else {
@@ -235,7 +235,7 @@ public class KodableController {
 
 			if (check(levelAns)) {
 				SequentialTransition lvl3 = new SequentialTransition(setParMove(0, -2, 2), setParMove(1, 0, 1),
-						setParMove(0, -1, 1), setParMove(2, 0, 2), setParMove(0, 3, 3), setParMove(4, 0, 4));
+						setParMove(0, -1, 1), setParMove(2, 0, 2), setParMove(0, 3, 3), setParMove(5, 0, 5));
 				lvl3.play();
 				lvl3.setOnFinished(e -> congrats.setVisible(true));
 			} else {
@@ -246,7 +246,7 @@ public class KodableController {
 
 			if (check(levelAns)) {
 				SequentialTransition lvl4 = new SequentialTransition(setParMove(0, 2, 2), setParMove(4, 0, 4),
-						setParMove(0, -1, 1), setParMove(3, 0, 3));
+						setParMove(0, -1, 1), setParMove(4, 0, 4));
 				lvl4.play();
 				lvl4.setOnFinished(e -> congrats.setVisible(true));
 			} else {
@@ -257,7 +257,7 @@ public class KodableController {
 
 			if (check(levelAns)) {
 				SequentialTransition lvl5 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 1, 1),
-						setParMove(3, 0, 3), setParMove(0, -3, 3), setParMove(2, 0, 2));
+						setParMove(3, 0, 3), setParMove(0, -3, 3), setParMove(3, 0, 3));
 				lvl5.play();
 				lvl5.setOnFinished(e -> congrats.setVisible(true));
 			} else {
@@ -268,7 +268,7 @@ public class KodableController {
 
 			if (check(levelAns)) {
 				SequentialTransition lvl6 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -2, 2),
-						setParMove(4, 0, 4), setParMove(0, -1, 1), setParMove(2, 0, 2));
+						setParMove(4, 0, 4), setParMove(0, -1, 1), setParMove(3, 0, 3));
 				lvl6.play();
 				lvl6.setOnFinished(e -> congrats.setVisible(true));
 			} else {
@@ -279,19 +279,19 @@ public class KodableController {
 
 			if (check(levelAns)) {
 				SequentialTransition lvl7 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -2, 2),
-						setParMove(2, 0, 2), setParMove(0, 2, 2), setParMove(3, 0, 3));
+						setParMove(2, 0, 2), setParMove(0, 2, 2), setParMove(4, 0, 4));
 				lvl7.play();
 				lvl7.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level8 != null) {
-			String levelAns[] = { "right", "up", "right", "up", "right", "down", "right" };
+			String levelAns[] = { "right", "down", "right", "down", "right", "down", "right" };
 
 			if (check(levelAns)) {
-				SequentialTransition lvl8 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -1, 1),
-						setParMove(1, 0, 1), setParMove(0, -1, 1), setParMove(3, 0, 3), setParMove(0, 2, 2),
-						setParMove(2, 0, 2));
+				SequentialTransition lvl8 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, 1, 1),
+						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(3, 0, 3), setParMove(0, 1, 1),
+						setParMove(3, 0, 3));
 				lvl8.play();
 				lvl8.setOnFinished(e -> congrats.setVisible(true));
 			} else {
@@ -303,7 +303,7 @@ public class KodableController {
 			if (check(levelAns)) {
 				SequentialTransition lvl9 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 2, 2),
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(2, 0, 2), setParMove(0, -2, 2),
-						setParMove(2, 0, 2));
+						setParMove(3, 0, 3));
 				lvl9.play();
 				lvl9.setOnFinished(e -> congrats.setVisible(true));
 			} else {
@@ -422,7 +422,7 @@ public class KodableController {
 	}
 
 	void levelSelect(String level) throws IOException {
-		Parent par = FXMLLoader.load(getClass().getResource(level));// needs to be replaced with level2 fxml
+		Parent par = FXMLLoader.load(getClass().getResource(level));
 		Scene sn = new Scene(par);
 		Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
 		stage.setScene(sn);
