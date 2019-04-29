@@ -63,6 +63,9 @@ public class KodableController {
 	private ImageView fuzzy;
 
 	@FXML
+	private ImageView welcome;
+
+	@FXML
 	private ImageView level1;
 
 	@FXML
@@ -395,12 +398,11 @@ public class KodableController {
 
 	@FXML
 	void nextLevel(MouseEvent event) throws IOException {// Moves to the next level by loading the fxml file based on
-															// which level is
-		// currently being played. // should be added after the animation of prior.
-		// level
-		// finishes.
-		if (level1 != null) {// checks to see which level currently has a value, all other levels should not
+															// which level is currently being played.
+		if (welcome != null) {// checks to see which level currently has a value, all other levels should not
 								// have a value.
+
+		} else if (level1 != null) {
 			levelSelect("Level_2.fxml");
 		} else if (level2 != null) {
 			levelSelect("Level_3.fxml");
