@@ -132,66 +132,52 @@ public class KodableController {
 	@FXML
 	void copy(MouseEvent event) {// used to set the user answers on Screen and into array
 		if (ans1.getImage() == null) {
-
-			if (event.getSceneX() <= ans1.getLayoutX() + ans1.getFitWidth() && event.getSceneX() >= ans1.getLayoutX()
-					&& event.getSceneY() <= ans1.getLayoutY() + ans1.getFitHeight()
-					&& event.getSceneY() >= ans1.getLayoutY()) {
-
+			if (checkBounds(event, ans1)) {
 				ans1.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[0] = event.getPickResult().getIntersectedNode().getId();
-
 			}
 		} else if (ans2.getImage() == null) {
-			if (event.getSceneX() <= ans2.getLayoutX() + ans2.getFitWidth() && event.getSceneX() >= ans2.getLayoutX()
-					&& event.getSceneY() <= ans2.getLayoutY() + ans2.getFitHeight()
-					&& event.getSceneY() >= ans2.getLayoutY()) {// Checks for the bounds of the imageView
-
+			if (checkBounds(event, ans2)) {
 				ans2.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[1] = event.getPickResult().getIntersectedNode().getId();
 			}
 		} else if (ans3.getImage() == null) {
-			if (event.getSceneX() <= ans3.getLayoutX() + ans3.getFitWidth() && event.getSceneX() >= ans3.getLayoutX()
-					&& event.getSceneY() <= ans3.getLayoutY() + ans3.getFitHeight()
-					&& event.getSceneY() >= ans3.getLayoutY()) {
-
+			if (checkBounds(event, ans3)) {
 				ans3.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[2] = event.getPickResult().getIntersectedNode().getId();
 			}
 		} else if (ans4.getImage() == null) {
-			if (event.getSceneX() <= ans4.getLayoutX() + ans4.getFitWidth() && event.getSceneX() >= ans4.getLayoutX()
-					&& event.getSceneY() <= ans4.getLayoutY() + ans4.getFitHeight()
-					&& event.getSceneY() >= ans4.getLayoutY()) {
-
+			if (checkBounds(event, ans4)) {
 				ans4.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[3] = event.getPickResult().getIntersectedNode().getId();
 			}
 		} else if (ans5.getImage() == null) { // below Implemented by Matt, having issues with github
-			if (event.getSceneX() <= ans5.getLayoutX() + ans5.getFitWidth() && event.getSceneX() >= ans5.getLayoutX()
-					&& event.getSceneY() <= ans5.getLayoutY() + ans5.getFitHeight()
-					&& event.getSceneY() >= ans5.getLayoutY()) {
-
+			if (checkBounds(event, ans5)) {
 				ans5.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[4] = event.getPickResult().getIntersectedNode().getId();
 			}
 		} else if (ans6.getImage() == null) {
-			if (event.getSceneX() <= ans6.getLayoutX() + ans6.getFitWidth() && event.getSceneX() >= ans6.getLayoutX()
-					&& event.getSceneY() <= ans6.getLayoutY() + ans6.getFitHeight()
-					&& event.getSceneY() >= ans6.getLayoutY()) {
-
+			if (checkBounds(event, ans6)) {
 				ans6.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[5] = event.getPickResult().getIntersectedNode().getId();
 			}
 		} else if (ans7.getImage() == null) {
-			if (event.getSceneX() <= ans7.getLayoutX() + ans7.getFitWidth() && event.getSceneX() >= ans7.getLayoutX()
-					&& event.getSceneY() <= ans7.getLayoutY() + ans7.getFitHeight()
-					&& event.getSceneY() >= ans7.getLayoutY()) {
-
+			if (checkBounds(event, ans7)) {
 				ans7.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
 				userAns[6] = event.getPickResult().getIntersectedNode().getId();
 			}
 		}
 		resetArrows();
 
+	}
+
+	Boolean checkBounds(MouseEvent event, ImageView box) {// Checks for the bounds of the imageView
+		if (event.getSceneX() <= box.getLayoutX() + box.getFitWidth() && event.getSceneX() >= box.getLayoutX()
+				&& event.getSceneY() <= box.getLayoutY() + box.getFitHeight()
+				&& event.getSceneY() >= box.getLayoutY()) {
+			return true;
+		}
+		return false;
 	}
 
 	@FXML
