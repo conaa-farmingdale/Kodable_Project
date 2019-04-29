@@ -27,76 +27,19 @@ public class KodableController {
 	String[] userAns = { "0", "1", "2", "3", "4", "5", "6", "7" };
 
 	@FXML
-	private ImageView ans1;
+	private ImageView ans1, ans2, ans3, ans4, ans5, ans6, ans7; // Answer Boxes
 
 	@FXML
-	private ImageView ans2;
+	private ImageView down, up, left, right; // Arrows
 
 	@FXML
-	private ImageView ans3;
+	private ImageView fuzzy; // Fuzzy guy
 
 	@FXML
-	private ImageView ans4;
+	private ImageView welcome, level1, level2, level3, level4, level5, level6, level7, level8, level9; // Levels
 
 	@FXML
-	private ImageView ans5;
-
-	@FXML
-	private ImageView ans6;
-
-	@FXML
-	private ImageView ans7;
-
-	@FXML
-	private ImageView down;
-
-	@FXML
-	private ImageView up;
-
-	@FXML
-	private ImageView left;
-
-	@FXML
-	private ImageView right;
-
-	@FXML
-	private ImageView fuzzy;
-
-	@FXML
-	private ImageView welcome;
-
-	@FXML
-	private ImageView level1;
-
-	@FXML
-	private ImageView level2;
-
-	@FXML
-	private ImageView level3;
-
-	@FXML
-	private ImageView level4;
-
-	@FXML
-	private ImageView level5;
-
-	@FXML
-	private ImageView level6;
-
-	@FXML
-	private ImageView level7;
-
-	@FXML
-	private ImageView level8;
-
-	@FXML
-	private ImageView level9;
-
-	@FXML
-	private Pane congrats;
-
-	@FXML
-	private Pane sorry;
+	private Pane congrats, sorry; // Overlay screens
 
 	@FXML
 	void click(MouseEvent event) {// gets values for the move method
@@ -126,7 +69,6 @@ public class KodableController {
 			break;
 		default:
 		}
-
 	}
 
 	@FXML
@@ -168,7 +110,6 @@ public class KodableController {
 			}
 		}
 		resetArrows();
-
 	}
 
 	Boolean checkBounds(MouseEvent event, ImageView box) {// Checks for the bounds of the imageView
@@ -182,6 +123,7 @@ public class KodableController {
 
 	@FXML
 	void move(MouseEvent event) {// makes clicked object move-able.
+
 		double offsetX = event.getSceneX() - orgSceneX;
 		double offsetY = event.getSceneY() - orgSceneY;
 		double newTranslateX = orgTranslateX + offsetX;
@@ -193,108 +135,97 @@ public class KodableController {
 
 	@FXML
 	void play(MouseEvent event) throws IOException {// When play is clicked this checks the level, then the given array
-													// and if its
-		// correct moves the fuzzy. Implemented by Matt
-
+													// and if its correct moves the fuzzy. Implemented by Matt
 		if (level1 != null) {
 			String levelAns[] = { "right", "up", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl1 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -1, 1),
+				SequentialTransition lvl = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -1, 1),
 						setParMove(6, 0, 6));
-				lvl1.play();
-				lvl1.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level2 != null) {
 			String levelAns[] = { "right", "up", "right", "up", "right", "down", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl2 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -1, 1),
+				SequentialTransition lvl = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -1, 1),
 						setParMove(1, 0, 1), setParMove(0, -1, 1), setParMove(3, 0, 3), setParMove(0, 2, 2),
 						setParMove(3, 0, 3));
-				lvl2.play();
-				lvl2.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level3 != null) {
 			String levelAns[] = { "up", "right", "up", "right", "down", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl3 = new SequentialTransition(setParMove(0, -2, 2), setParMove(1, 0, 1),
+				SequentialTransition lvl = new SequentialTransition(setParMove(0, -2, 2), setParMove(1, 0, 1),
 						setParMove(0, -1, 1), setParMove(2, 0, 2), setParMove(0, 3, 3), setParMove(5, 0, 5));
-				lvl3.play();
-				lvl3.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level4 != null) {
 			String levelAns[] = { "down", "right", "up", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl4 = new SequentialTransition(setParMove(0, 2, 2), setParMove(4, 0, 4),
+				SequentialTransition lvl = new SequentialTransition(setParMove(0, 2, 2), setParMove(4, 0, 4),
 						setParMove(0, -1, 1), setParMove(4, 0, 4));
-				lvl4.play();
-				lvl4.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level5 != null) {
 			String levelAns[] = { "right", "down", "right", "up", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl5 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 1, 1),
+				SequentialTransition lvl = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 1, 1),
 						setParMove(3, 0, 3), setParMove(0, -3, 3), setParMove(3, 0, 3));
-				lvl5.play();
-				lvl5.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level6 != null) {
 			String levelAns[] = { "right", "up", "right", "up", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl6 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -2, 2),
+				SequentialTransition lvl = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -2, 2),
 						setParMove(4, 0, 4), setParMove(0, -1, 1), setParMove(3, 0, 3));
-				lvl6.play();
-				lvl6.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level7 != null) {
 			String levelAns[] = { "right", "up", "right", "down", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl7 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -2, 2),
+				SequentialTransition lvl = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -2, 2),
 						setParMove(2, 0, 2), setParMove(0, 2, 2), setParMove(4, 0, 4));
-				lvl7.play();
-				lvl7.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level8 != null) {
 			String levelAns[] = { "right", "down", "right", "down", "right", "down", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl8 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, 1, 1),
+				SequentialTransition lvl = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, 1, 1),
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(3, 0, 3), setParMove(0, 1, 1),
 						setParMove(3, 0, 3));
-				lvl8.play();
-				lvl8.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
 		} else if (level9 != null) {
 			String levelAns[] = { "right", "down", "right", "down", "right", "up", "right" };
-
 			if (checkAns(levelAns)) {
-				SequentialTransition lvl9 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 2, 2),
+				SequentialTransition lvl = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 2, 2),
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(2, 0, 2), setParMove(0, -2, 2),
 						setParMove(3, 0, 3));
-				lvl9.play();
-				lvl9.setOnFinished(e -> congrats.setVisible(true));
+				lvl.play();
+				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
 				sorry.setVisible(true);
 			}
@@ -319,6 +250,7 @@ public class KodableController {
 
 	@FXML
 	void clear(MouseEvent event) { // clears input from userAns array and resets them to starting values
+
 		ans1.setImage(null);
 		ans2.setImage(null);
 		ans3.setImage(null);
@@ -347,12 +279,12 @@ public class KodableController {
 			return down.getImage();
 		default:
 			break;
-
 		}
 		return null;
 	}
 
 	void resetArrows() {// moves arrows back to set location and removes the drop shadow
+
 		left.setTranslateX(-left.getX());
 		left.setTranslateY(-left.getY());
 		left.setEffect(new DropShadow(0, Color.BLACK));
@@ -405,11 +337,13 @@ public class KodableController {
 		} else if (level8 != null) {
 			levelSelect("Level_9.fxml");
 		} else if (level9 != null) {
-//			levelSelect("Level_$.fxml"); <--- should think about an end card or thank you for playing card
+			// levelSelect("Level_$.fxml"); <--- should think about an end card or thank you
+			// for playing card
 		}
 	}
 
 	void levelSelect(String level) throws IOException {
+
 		Parent par = FXMLLoader.load(getClass().getResource(level));
 		Scene sn = new Scene(par);
 		Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
