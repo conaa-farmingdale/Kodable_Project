@@ -199,7 +199,7 @@ public class KodableController {
 		if (level1 != null) {
 			String levelAns[] = { "right", "up", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl1 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -1, 1),
 						setParMove(6, 0, 6));
 				lvl1.play();
@@ -210,7 +210,7 @@ public class KodableController {
 		} else if (level2 != null) {
 			String levelAns[] = { "right", "up", "right", "up", "right", "down", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl2 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -1, 1),
 						setParMove(1, 0, 1), setParMove(0, -1, 1), setParMove(3, 0, 3), setParMove(0, 2, 2),
 						setParMove(3, 0, 3));
@@ -222,7 +222,7 @@ public class KodableController {
 		} else if (level3 != null) {
 			String levelAns[] = { "up", "right", "up", "right", "down", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl3 = new SequentialTransition(setParMove(0, -2, 2), setParMove(1, 0, 1),
 						setParMove(0, -1, 1), setParMove(2, 0, 2), setParMove(0, 3, 3), setParMove(5, 0, 5));
 				lvl3.play();
@@ -233,7 +233,7 @@ public class KodableController {
 		} else if (level4 != null) {
 			String levelAns[] = { "down", "right", "up", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl4 = new SequentialTransition(setParMove(0, 2, 2), setParMove(4, 0, 4),
 						setParMove(0, -1, 1), setParMove(4, 0, 4));
 				lvl4.play();
@@ -244,7 +244,7 @@ public class KodableController {
 		} else if (level5 != null) {
 			String levelAns[] = { "right", "down", "right", "up", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl5 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 1, 1),
 						setParMove(3, 0, 3), setParMove(0, -3, 3), setParMove(3, 0, 3));
 				lvl5.play();
@@ -255,7 +255,7 @@ public class KodableController {
 		} else if (level6 != null) {
 			String levelAns[] = { "right", "up", "right", "up", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl6 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, -2, 2),
 						setParMove(4, 0, 4), setParMove(0, -1, 1), setParMove(3, 0, 3));
 				lvl6.play();
@@ -266,7 +266,7 @@ public class KodableController {
 		} else if (level7 != null) {
 			String levelAns[] = { "right", "up", "right", "down", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl7 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -2, 2),
 						setParMove(2, 0, 2), setParMove(0, 2, 2), setParMove(4, 0, 4));
 				lvl7.play();
@@ -277,7 +277,7 @@ public class KodableController {
 		} else if (level8 != null) {
 			String levelAns[] = { "right", "down", "right", "down", "right", "down", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl8 = new SequentialTransition(setParMove(1, 0, 1), setParMove(0, 1, 1),
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(3, 0, 3), setParMove(0, 1, 1),
 						setParMove(3, 0, 3));
@@ -289,7 +289,7 @@ public class KodableController {
 		} else if (level9 != null) {
 			String levelAns[] = { "right", "down", "right", "down", "right", "up", "right" };
 
-			if (check(levelAns)) {
+			if (checkAns(levelAns)) {
 				SequentialTransition lvl9 = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, 2, 2),
 						setParMove(1, 0, 1), setParMove(0, 1, 1), setParMove(2, 0, 2), setParMove(0, -2, 2),
 						setParMove(3, 0, 3));
@@ -372,7 +372,7 @@ public class KodableController {
 		sorry.toFront();
 	}
 
-	boolean check(String array[]) {
+	boolean checkAns(String array[]) {
 
 		for (int i = 0; i < array.length; i++) {
 			if (!userAns[i].equals(array[i])) {
