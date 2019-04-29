@@ -333,14 +333,16 @@ public class KodableController {
 		 ans1.setImage(null);
 		 ans2.setImage(null);
 		 ans3.setImage(null);
-		 //ans4.setImage(null);
-		 //ans5.setImage(null);
-		 //ans6.setImage(null);
-		 //ans7.setImage(null);
+		 ans4.setImage(null);
+		 ans5.setImage(null);
+		 ans6.setImage(null);
+		 ans7.setImage(null);
 		 sorry.setVisible(false);
 		 congrats.setVisible(false);
 		
-		String[] userAns = { "0", "1", "2", "3", "4", "5", "6" };
+		for (int i = 0; i < userAns.length; i++) {
+			userAns[i] = "1";
+		}
 	}
 
 	Image assignsImage(String dir) {// sets the image for assignment into the user answers
