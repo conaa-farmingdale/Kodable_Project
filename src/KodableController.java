@@ -23,9 +23,7 @@ public class KodableController {
 
 	double orgSceneX, orgSceneY;
 	double orgTranslateX, orgTranslateY;
-	int level;
 	String[] userAns = { "0", "1", "2", "3", "4", "5", "6", "7" };
-	int count = 1;
 
 	@FXML
 	private ImageView ans1, ans2, ans3, ans4, ans5, ans6, ans7; // Answer Boxes
@@ -338,13 +336,7 @@ public class KodableController {
 		} else if (level8 != null) {
 			levelSelect("Level_9");
 		} else if (level9 != null) {
-<<<<<<< HEAD
 			levelSelect("Level_1"); 
-			count = 0;
-=======
-			// levelSelect("Level_$.fxml"); <--- should think about an end card or thank you
-			// for playing card
->>>>>>> branch 'Anthony' of https://github.com/kmbranda/game-group-project.git
 		}
 	}
 
