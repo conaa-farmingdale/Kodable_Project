@@ -338,8 +338,13 @@ public class KodableController {
 		} else if (level8 != null) {
 			levelSelect("Level_9");
 		} else if (level9 != null) {
+<<<<<<< HEAD
 			levelSelect("Level_1"); 
 			count = 0;
+=======
+			// levelSelect("Level_$.fxml"); <--- should think about an end card or thank you
+			// for playing card
+>>>>>>> branch 'Anthony' of https://github.com/kmbranda/game-group-project.git
 		}
 	}
 
