@@ -25,6 +25,7 @@ public class KodableController {
 	double orgTranslateX, orgTranslateY;
 	int level;
 	String[] userAns = { "0", "1", "2", "3", "4", "5", "6", "7" };
+	int count = 1;
 
 	@FXML
 	private ImageView ans1, ans2, ans3, ans4, ans5, ans6, ans7; // Answer Boxes
@@ -338,14 +339,16 @@ public class KodableController {
 			levelSelect("Level_9.fxml");
 		} else if (level9 != null) {
 			levelSelect("Level_1.fxml"); 
+			count = 0;
 		}
 	}
 
 	void levelSelect(String level) throws IOException {
-
+		
 		Parent par = FXMLLoader.load(getClass().getResource(level));
 		Scene sn = new Scene(par);
 		Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
+		stage.setTitle("Kodable!");
 		stage.setScene(sn);
 		stage.show();
 	}
@@ -355,6 +358,7 @@ public class KodableController {
 		Parent par = FXMLLoader.load(getClass().getResource(level));
 		Scene sn = new Scene(par);
 		Stage stage = (Stage) ((Node) img).getScene().getWindow();
+		stage.setTitle("Kodable!");
 		stage.setScene(sn);
 		stage.show();
 	}

@@ -15,7 +15,7 @@ public class KodableMain extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
 		
 		Scene sn = new Scene(root,1100,800);
-		//sn.getStylesheets().add("mystyle.css");
+		primaryStage.setTitle("Welcome");
 		primaryStage.setScene(sn);
 		primaryStage.show();
 	}
