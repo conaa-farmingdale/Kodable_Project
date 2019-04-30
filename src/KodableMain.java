@@ -1,73 +1,52 @@
-import javafx.animation.SequentialTransition;
+import java.util.concurrent.TimeUnit;
+
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 public class KodableMain extends Application{
-
-	public static void main(String[] args) {
-		launch (args);
+	
+	// Splash screen to be used in start method	
+	 SplashScreenController spashScreen = new SplashScreenController();
+	
+	public void start(Stage primaryStage) throws Exception {
+        
+        // Load actual content
+		Parent root = FXMLLoader.load(getClass().getResource("Level_1.fxml"));		
+		Scene sn = new Scene(root,1100,800);
+		primaryStage.setScene(sn);
+		
+		//Show the splash screen
+		spashScreen.showWindow();
+		// Display splash screen for 2 seconds, then load main application
+		PauseTransition splashScreenDelay = new PauseTransition(Duration.seconds(3));
+		splashScreenDelay.setOnFinished(f -> {
+		    primaryStage.show();
+		    // Close the splash screen
+		    spashScreen.hideWindow();
+		});
+		splashScreenDelay.playFromStart();
+		
 	}
 	
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("KodableDriverTemp.fxml"));
+	public static void main(String[] args) {
 		
-		//controller arrow buttons
-		Image upArrowImg=new Image("UpArrowBtn.jpg");
-		ImageView upArrow=new ImageView(upArrowImg);
-		Image downArrowImg=new Image("DownArrowBtn.jpg");
-		ImageView downArrow=new ImageView(downArrowImg);
-		Image rightArrowImg=new Image("RightArrowBtn.jpg");
-		ImageView rightArrow=new ImageView(rightArrowImg);
-		Image leftArrowImg=new Image("LeftArrowBtn.jpg");
-		ImageView leftArrow=new ImageView(leftArrowImg);
-		Image playBtnImg=new Image("PlayBtn.jpg");
-		ImageView playBtn=new ImageView(playBtnImg);
 		
-        playBtn.setOnAction(actionEvent ->
-        {
-            List<Timeline> timeLines = new ArrayList();//This List will hold the TimeLines so that it can be used later to play the animation in order.
-
-            for (ToggleButton tempToggleButton : order)//Create a press animation and a release animation for each ToggleButton in the List order
-            {
-                KeyFrame pressButton = new KeyFrame(Duration.seconds(1),
-                        (kfActionEvent) ->
-                {
-                    System.out.println(tempToggleButton.getText() + "Selected!");
-                    tempToggleButton.setSelected(true);
-                });
-                Timeline pressTimeline = new Timeline();
-                pressTimeline.getKeyFrames().addAll(pressButton);
-                timeLines.add(pressTimeline);
-
-                KeyFrame releaseButton = new KeyFrame(Duration.seconds(1),
-                        (kfActionEvent) ->
-                {
-                    System.out.println(tempToggleButton.getText() + "Unselected!");
-                    tempToggleButton.setSelected(false);
-                });
-                Timeline releaseTimeline = new Timeline();
-                releaseTimeline.getKeyFrames().addAll(releaseButton);
-                timeLines.add(releaseTimeline);
-            }
-		
-		Scene sn = new Scene(root,1100,800);
-		//sn.getStylesheets().add("mystyle.css");
-		primaryStage.setScene(sn);
-		primaryStage.show();
-		
-        SequentialTransition sequentialTransition = new SequentialTransition();
-        sequentialTransition.getChildren().addAll(timeLines);//Add all the Timelines created to a SequentialTransition
-        sequentialTransition.play();
-        sequentialTransition.setOnFinished(stActionEvent -> {
-            timeLines.clear();//Once done, clear the animations
+		launch (args);
 	}
 	
 	
 	
 }
+	
+
+
