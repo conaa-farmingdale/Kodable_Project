@@ -13,7 +13,12 @@
             <Image url="@Welcome%20Screen.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="268.0" layoutY="600.0" mnemonicParsing="false" onMousePressed="#nextLevel" prefHeight="131.0" prefWidth="565.0" style="-fx-background-color: lightGreen; -fx-border-color: white; -fx-border-width: 10;" text="Play!" textAlignment="JUSTIFY">
+      <Button layoutX="14.0" layoutY="603.0" mnemonicParsing="false" onMousePressed="#nextLevel" prefHeight="150.0" prefWidth="470.0" style="-fx-background-color: lightGreen; -fx-border-color: white; -fx-border-width: 10;" text="Play!" textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font name="Buxton Sketch" size="60.0" />
+         </font>
+      </Button>
+      <Button layoutX="616.0" layoutY="603.0" mnemonicParsing="false" onMousePressed="#howTo" prefHeight="150.0" prefWidth="470.0" style="-fx-background-color: lightGreen; -fx-border-color: white; -fx-border-width: 10;" text="How to play" textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font name="Buxton Sketch" size="60.0" />
          </font>

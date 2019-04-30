@@ -1,4 +1,7 @@
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -10,6 +13,7 @@ import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -359,4 +363,15 @@ public class KodableController {
 		stage.setScene(sn);
 		stage.show();
 	}
+	
+	@FXML
+    void howTo(MouseEvent event) throws IOException {
+
+		Parent par = FXMLLoader.load(getClass().getResource("HowToPlay.fxml"));
+		Scene sn = new Scene(par);
+		Stage stage = new Stage();
+		stage.setTitle("How to Play");
+		stage.setScene(sn);
+		stage.show();	
+    }
 }
