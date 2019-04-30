@@ -12,7 +12,7 @@ public class KodableMain extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("Level_1.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
 		
 		Scene sn = new Scene(root,1100,800);
 		//sn.getStylesheets().add("mystyle.css");

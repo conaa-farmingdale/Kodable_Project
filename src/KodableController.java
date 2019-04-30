@@ -319,7 +319,7 @@ public class KodableController {
 															// which level is currently being played.
 		if (welcome != null) {// checks to see which level currently has a value, all other levels should not
 								// have a value.
-
+			levelSelect("Level_1.fxml", welcome);
 		} else if (level1 != null) {
 			levelSelect("Level_2.fxml");
 		} else if (level2 != null) {
@@ -346,6 +346,15 @@ public class KodableController {
 		Parent par = FXMLLoader.load(getClass().getResource(level));
 		Scene sn = new Scene(par);
 		Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
+		stage.setScene(sn);
+		stage.show();
+	}
+	
+	void levelSelect(String level, ImageView img) throws IOException {
+
+		Parent par = FXMLLoader.load(getClass().getResource(level));
+		Scene sn = new Scene(par);
+		Stage stage = (Stage) ((Node) img).getScene().getWindow();
 		stage.setScene(sn);
 		stage.show();
 	}
