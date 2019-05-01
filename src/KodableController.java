@@ -1,7 +1,4 @@
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -14,7 +11,6 @@ import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -45,15 +41,33 @@ public class KodableController {
 	@FXML
 	private Pane congrats, sorry; // Overlay screens
 
-	@FXML
-	void click(MouseEvent event) {// gets values for the move method
+	@FXML // clears input from userAns array and resets them to starting values
+	void clear(MouseEvent event) {
+
+		ans1.setImage(null);
+		ans2.setImage(null);
+		ans3.setImage(null);
+		ans4.setImage(null);
+		ans5.setImage(null);
+		ans6.setImage(null);
+		ans7.setImage(null);
+		sorry.setVisible(false);
+		congrats.setVisible(false);
+
+		for (int i = 0; i < userAns.length; i++) {
+			userAns[i] = "1";
+		}
+	}
+
+	@FXML // gets values for the move method
+	void click(MouseEvent event) {
 
 		orgSceneX = event.getSceneX();
 		orgSceneY = event.getSceneY();
 		orgTranslateX = ((Node) (event.getSource())).getTranslateX();
 		orgTranslateY = ((Node) (event.getSource())).getTranslateY();
 
-		switch (event.getPickResult().getIntersectedNode().getId()) {// adds drop shadow to the arrow being used and
+		switch (event.getPickResult().getIntersectedNode().getId()) {// adds drop shadow to the arrow being clicked and
 																		// moves them to the front making them on top.
 		case "up":
 			up.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
@@ -75,11 +89,18 @@ public class KodableController {
 		}
 	}
 
-	@FXML
-	void copy(MouseEvent event) {// used to set the user answers on Screen and into array
+	@FXML // used to set the user answers on Screen and into array and copy onto screen
+	void copy(MouseEvent event) {
+		
+		// checks weather the ImageView is loaded allowing for it to be written to. This
+		// applies to all that follow
 		if (ans1.getImage() == null) {
 			if (checkBounds(event, ans1)) {
+				// sets the ImageView based on the current image being dragged. This applies to
+				// all that follow
 				ans1.setImage(assignsImage(event.getPickResult().getIntersectedNode().getId()));
+				// saves Id value into userAns for future validation. This applies to all that
+				// follow
 				userAns[0] = event.getPickResult().getIntersectedNode().getId();
 			}
 		} else if (ans2.getImage() == null) {
@@ -113,20 +134,37 @@ public class KodableController {
 				userAns[6] = event.getPickResult().getIntersectedNode().getId();
 			}
 		}
+		// returns arrows after release of button
 		resetArrows();
 	}
 
-	Boolean checkBounds(MouseEvent event, ImageView box) {// Checks for the bounds of the imageView
-		if (event.getSceneX() <= box.getLayoutX() + box.getFitWidth() && event.getSceneX() >= box.getLayoutX()
-				&& event.getSceneY() <= box.getLayoutY() + box.getFitHeight()
-				&& event.getSceneY() >= box.getLayoutY()) {
-			return true;
-		}
-		return false;
+	@FXML // loads HowToPlay fxml when user presses How To Play button
+	void howTo(MouseEvent event) throws IOException {
+
+		Parent par = FXMLLoader.load(getClass().getResource("HowToPlay.fxml"));
+		Scene sn = new Scene(par);
+		Stage stage = new Stage();
+		stage.setTitle("How to Play");
+		stage.setScene(sn);
+		stage.show();
 	}
 
-	@FXML
-	void move(MouseEvent event) {// makes clicked object move-able.
+	@FXML // Allows fuzzy to appear as if it has jumped by scaling and returning to
+			// orginal position
+	void jump(MouseEvent event) {
+		
+		ScaleTransition scale = new ScaleTransition(Duration.seconds(1), fuzzy);
+		scale.setByX(.3);
+		scale.setByY(.3);
+		scale.setCycleCount(2);
+		scale.setAutoReverse(true);
+		fuzzy.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK));
+		scale.play();
+		scale.setOnFinished(e -> fuzzy.setEffect(new DropShadow(0, 0, 0, Color.BLACK)));
+	}
+
+	@FXML // makes clicked object move-able.
+	void move(MouseEvent event) {
 
 		double offsetX = event.getSceneX() - orgSceneX;
 		double offsetY = event.getSceneY() - orgSceneY;
@@ -137,17 +175,53 @@ public class KodableController {
 		((Node) (event.getSource())).setTranslateY(newTranslateY);
 	}
 
-	@FXML
-	void play(MouseEvent event) throws IOException {// When play is clicked this checks the level, then the given array
-													// and if its correct moves the fuzzy. Implemented by Matt
+	@FXML // Moves to the next level by loading the fxml file based on which level is
+			// currently being played.
+	void nextLevel(MouseEvent event) throws IOException {
+		
+		// checks to see which level currently has a value, all other levels should not
+		// have a value.
+		if (welcome != null) {
+			levelSelect("Level_1", welcome);
+		} else if (level1 != null) {
+			levelSelect("Level_2");
+		} else if (level2 != null) {
+			levelSelect("Level_3");
+		} else if (level3 != null) {
+			levelSelect("Level_4");
+		} else if (level4 != null) {
+			levelSelect("Level_5");
+		} else if (level5 != null) {
+			levelSelect("Level_6");
+		} else if (level6 != null) {
+			levelSelect("Level_7");
+		} else if (level7 != null) {
+			levelSelect("Level_8");
+		} else if (level8 != null) {
+			levelSelect("Level_9");
+		} else if (level9 != null) {
+			levelSelect("Level_1");
+		}
+	}
+
+	@FXML // Creates Parallel Transitions to rotate and translate then puts those into a
+			// Sequential Transition. Applied to the fuzzy Image. Implemented by Matt
+	void play(MouseEvent event) throws IOException {
+		
+		// Checks the current level
 		if (level1 != null) {
 			String levelAns[] = { "right", "up", "right" };
+			// Checks if levelAns is equal to the userAns. This applies to all that follow
 			if (checkAns(levelAns)) {
 				SequentialTransition lvl = new SequentialTransition(setParMove(2, 0, 2), setParMove(0, -1, 1),
 						setParMove(6, 0, 6));
 				lvl.play();
+				// After the transition makes the congrats pane visible allowing user to go to
+				// next level. This applies to all that follow
 				lvl.setOnFinished(e -> congrats.setVisible(true));
 			} else {
+				// if the transition doesn't play the sorry pane is displayed allowing user to
+				// reset or quit. This applies to all that follow
 				sorry.setVisible(true);
 			}
 		} else if (level2 != null) {
@@ -236,13 +310,15 @@ public class KodableController {
 		}
 	}
 
-	@FXML
+	@FXML // quits the program
 	void quit(MouseEvent event) {
+		
 		System.exit(0);
 	}
 
-	ParallelTransition setParMove(int x, int y, int r) {// sets individual ParallelTransitioin to move the Fuzzy.
-														// Implemented by Matt
+	// sets individual ParallelTransitioin to move the Fuzzy. Implemented by Matt
+	ParallelTransition setParMove(int x, int y, int r) {
+		
 		Duration duration = Duration.seconds(1);
 		TranslateTransition move = new TranslateTransition(duration, fuzzy);
 		RotateTransition rotate = new RotateTransition(duration, fuzzy);
@@ -252,25 +328,9 @@ public class KodableController {
 		return new ParallelTransition(move, rotate);
 	}
 
-	@FXML
-	void clear(MouseEvent event) { // clears input from userAns array and resets them to starting values
-
-		ans1.setImage(null);
-		ans2.setImage(null);
-		ans3.setImage(null);
-		ans4.setImage(null);
-		ans5.setImage(null);
-		ans6.setImage(null);
-		ans7.setImage(null);
-		sorry.setVisible(false);
-		congrats.setVisible(false);
-
-		for (int i = 0; i < userAns.length; i++) {
-			userAns[i] = "1";
-		}
-	}
-
-	Image assignsImage(String dir) {// sets the image for assignment into the user answers
+	// sets the image for assignment into the user answers based on the passed
+	// variable
+	Image assignsImage(String dir) {
 
 		switch (dir) {
 		case "up":
@@ -287,7 +347,55 @@ public class KodableController {
 		return null;
 	}
 
-	void resetArrows() {// moves arrows back to set location and removes the drop shadow
+	//Compares passed array to userAns array if any of the answers don't match it returns false
+	boolean checkAns(String array[]) {
+
+		for (int i = 0; i < array.length; i++) {
+			if (!userAns[i].equals(array[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// Checks if the MouseEvent is within the ImageView that is passed into the
+	// method
+	Boolean checkBounds(MouseEvent event, ImageView box) {
+
+		if (event.getSceneX() <= box.getLayoutX() + box.getFitWidth() && event.getSceneX() >= box.getLayoutX()
+				&& event.getSceneY() <= box.getLayoutY() + box.getFitHeight()
+				&& event.getSceneY() >= box.getLayoutY()) {
+			return true;
+		}
+		return false;
+	}
+
+	// takes passed variable and loads and displays that fxml as long as it exists.
+	void levelSelect(String level) throws IOException {
+
+		Parent par = FXMLLoader.load(getClass().getResource(level + ".fxml"));
+		Scene sn = new Scene(par);
+		Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
+		stage.setTitle("Kodable " + level);
+		stage.setScene(sn);
+		stage.show();
+	}
+
+	// takes passed variable and loads and displays that fxml as long as it exists
+	// and gets the window for the img. used once in code
+	void levelSelect(String level, ImageView img) throws IOException {
+
+		Parent par = FXMLLoader.load(getClass().getResource(level + ".fxml"));
+		Scene sn = new Scene(par);
+		Stage stage = (Stage) ((Node) img).getScene().getWindow();
+		stage.setTitle("Kodable " + level);
+		stage.setScene(sn);
+		stage.show();
+	}
+
+	// moves arrows back to set location and removes the drop shadow and sets the
+	// panes forward to be above the arrows
+	void resetArrows() {
 
 		left.setTranslateX(-left.getX());
 		left.setTranslateY(-left.getY());
@@ -306,85 +414,5 @@ public class KodableController {
 		down.setEffect(new DropShadow(0, Color.BLACK));
 		congrats.toFront();
 		sorry.toFront();
-	}
-
-	boolean checkAns(String array[]) {
-
-		for (int i = 0; i < array.length; i++) {
-			if (!userAns[i].equals(array[i])) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	@FXML
-	void nextLevel(MouseEvent event) throws IOException {// Moves to the next level by loading the fxml file based on
-															// which level is currently being played.
-		if (welcome != null) {// checks to see which level currently has a value, all other levels should not
-								// have a value.
-			levelSelect("Level_1", welcome);
-		} else if (level1 != null) {
-			levelSelect("Level_2");
-		} else if (level2 != null) {
-			levelSelect("Level_3");
-		} else if (level3 != null) {
-			levelSelect("Level_4");
-		} else if (level4 != null) {
-			levelSelect("Level_5");
-		} else if (level5 != null) {
-			levelSelect("Level_6");
-		} else if (level6 != null) {
-			levelSelect("Level_7");
-		} else if (level7 != null) {
-			levelSelect("Level_8");
-		} else if (level8 != null) {
-			levelSelect("Level_9");
-		} else if (level9 != null) {
-			levelSelect("Level_1"); 
-		}
-	}
-
-	void levelSelect(String level) throws IOException {
-		
-		Parent par = FXMLLoader.load(getClass().getResource(level + ".fxml"));
-		Scene sn = new Scene(par);
-		Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
-		stage.setTitle("Kodable " + level);
-		stage.setScene(sn);
-		stage.show();
-	}
-	
-	void levelSelect(String level, ImageView img) throws IOException {
-
-		Parent par = FXMLLoader.load(getClass().getResource(level + ".fxml"));
-		Scene sn = new Scene(par);
-		Stage stage = (Stage) ((Node) img).getScene().getWindow();
-		stage.setTitle("Kodable " + level);
-		stage.setScene(sn);
-		stage.show();
-	}
-	
-	@FXML
-    void howTo(MouseEvent event) throws IOException {
-
-		Parent par = FXMLLoader.load(getClass().getResource("HowToPlay.fxml"));
-		Scene sn = new Scene(par);
-		Stage stage = new Stage();
-		stage.setTitle("How to Play");
-		stage.setScene(sn);
-		stage.show();	
-    }
-	
-	@FXML
-    void jump(MouseEvent event) {
-	ScaleTransition scale = new ScaleTransition(Duration.seconds(1), fuzzy);
-	scale.setByX(.3);
-	scale.setByY(.3);
-	scale.setCycleCount(2);
-	scale.setAutoReverse(true);
-	fuzzy.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK)); 
-	scale.play();
-	scale.setOnFinished(e -> fuzzy.setEffect(new DropShadow(0, 0, 0, Color.BLACK)));
 	}
 }
