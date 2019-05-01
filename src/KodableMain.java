@@ -1,5 +1,4 @@
 import java.util.concurrent.TimeUnit;
-
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,14 +14,15 @@ import javafx.util.Duration;
 
 public class KodableMain extends Application{
 	
-	// Splash screen to be used in start method	
-	 SplashScreenController spashScreen = new SplashScreenController();
+	// Splash screen to be used in start method, added by Kathleen
+		 SplashScreenController spashScreen = new SplashScreenController();
 	
 	public void start(Stage primaryStage) throws Exception {
         
         // Load actual content
-		Parent root = FXMLLoader.load(getClass().getResource("Level_1.fxml"));		
+		Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));		
 		Scene sn = new Scene(root,1100,800);
+		primaryStage.setTitle("Welcome");
 		primaryStage.setScene(sn);
 		
 		//Show the splash screen

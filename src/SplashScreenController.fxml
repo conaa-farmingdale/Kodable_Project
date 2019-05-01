@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -12,7 +11,7 @@
          <center>
             <ImageView fx:id="imageView" fitHeight="531.0" fitWidth="676.0" pickOnBounds="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@WelcomeScreen.jpg" />
+                  <Image url="@Welcome%20Screen.jpg" />
                </image>
             </ImageView>
          </center>
