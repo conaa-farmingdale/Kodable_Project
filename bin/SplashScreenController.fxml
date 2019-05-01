@@ -11,7 +11,7 @@
          <center>
             <ImageView fx:id="imageView" fitHeight="531.0" fitWidth="676.0" pickOnBounds="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@Welcome%20Screen.jpg" />
+                  <Image url="@Kodable Loading.jpg" />
                </image>
             </ImageView>
          </center>
