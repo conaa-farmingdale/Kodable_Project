@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -374,4 +375,16 @@ public class KodableController {
 		stage.setScene(sn);
 		stage.show();	
     }
+	
+	@FXML
+    void jump(MouseEvent event) {
+	ScaleTransition scale = new ScaleTransition(Duration.seconds(1), fuzzy);
+	scale.setByX(.3);
+	scale.setByY(.3);
+	scale.setCycleCount(2);
+	scale.setAutoReverse(true);
+	fuzzy.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK)); 
+	scale.play();
+	scale.setOnFinished(e -> fuzzy.setEffect(new DropShadow(0, 0, 0, Color.BLACK)));
+	}
 }
