@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: lightGreen; -fx-border-color: white; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KodableController">
+   <children>
+      <Label layoutX="88.0" layoutY="14.0" text="How to Play!">
+         <font>
+            <Font name="Buxton Sketch" size="71.0" />
+         </font>
+      </Label>
+      <Text layoutX="25.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In order for Fuzzy to move through the maze, you (the player) will choose the arrows that point Fuzzy in the right way to move through the puzzle. If you choose the wrong arrows, then Fuzzy cannot move and you can try again as many times as you need to help Fuzzy move to the next level! If you want to stop playing, then click the red &quot;x&quot; in the corner of any screen or the &quot;Quit&quot; button at the end of the game." wrappingWidth="450.0">
+         <font>
+            <Font name="Buxton Sketch" size="23.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

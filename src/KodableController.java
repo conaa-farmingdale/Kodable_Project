@@ -1,4 +1,7 @@
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -6,10 +9,12 @@ import java.io.IOException;
 
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,7 +28,6 @@ public class KodableController {
 
 	double orgSceneX, orgSceneY;
 	double orgTranslateX, orgTranslateY;
-	int level;
 	String[] userAns = { "0", "1", "2", "3", "4", "5", "6", "7" };
 
 	@FXML
@@ -319,34 +323,68 @@ public class KodableController {
 															// which level is currently being played.
 		if (welcome != null) {// checks to see which level currently has a value, all other levels should not
 								// have a value.
-
+			levelSelect("Level_1", welcome);
 		} else if (level1 != null) {
-			levelSelect("Level_2.fxml");
+			levelSelect("Level_2");
 		} else if (level2 != null) {
-			levelSelect("Level_3.fxml");
+			levelSelect("Level_3");
 		} else if (level3 != null) {
-			levelSelect("Level_4.fxml");
+			levelSelect("Level_4");
 		} else if (level4 != null) {
-			levelSelect("Level_5.fxml");
+			levelSelect("Level_5");
 		} else if (level5 != null) {
-			levelSelect("Level_6.fxml");
+			levelSelect("Level_6");
 		} else if (level6 != null) {
-			levelSelect("Level_7.fxml");
+			levelSelect("Level_7");
 		} else if (level7 != null) {
-			levelSelect("Level_8.fxml");
+			levelSelect("Level_8");
 		} else if (level8 != null) {
-			levelSelect("Level_9.fxml");
+			levelSelect("Level_9");
 		} else if (level9 != null) {
-			levelSelect("Level_1.fxml"); 
+			levelSelect("Level_1"); 
 		}
 	}
 
 	void levelSelect(String level) throws IOException {
-
-		Parent par = FXMLLoader.load(getClass().getResource(level));
+		
+		Parent par = FXMLLoader.load(getClass().getResource(level + ".fxml"));
 		Scene sn = new Scene(par);
 		Stage stage = (Stage) ((Node) fuzzy).getScene().getWindow();
+		stage.setTitle("Kodable " + level);
 		stage.setScene(sn);
 		stage.show();
+	}
+	
+	void levelSelect(String level, ImageView img) throws IOException {
+
+		Parent par = FXMLLoader.load(getClass().getResource(level + ".fxml"));
+		Scene sn = new Scene(par);
+		Stage stage = (Stage) ((Node) img).getScene().getWindow();
+		stage.setTitle("Kodable " + level);
+		stage.setScene(sn);
+		stage.show();
+	}
+	
+	@FXML
+    void howTo(MouseEvent event) throws IOException {
+
+		Parent par = FXMLLoader.load(getClass().getResource("HowToPlay.fxml"));
+		Scene sn = new Scene(par);
+		Stage stage = new Stage();
+		stage.setTitle("How to Play");
+		stage.setScene(sn);
+		stage.show();	
+    }
+	
+	@FXML
+    void jump(MouseEvent event) {
+	ScaleTransition scale = new ScaleTransition(Duration.seconds(1), fuzzy);
+	scale.setByX(.3);
+	scale.setByY(.3);
+	scale.setCycleCount(2);
+	scale.setAutoReverse(true);
+	fuzzy.setEffect(new DropShadow(15, 5.0, 5.0, Color.BLACK)); 
+	scale.play();
+	scale.setOnFinished(e -> fuzzy.setEffect(new DropShadow(0, 0, 0, Color.BLACK)));
 	}
 }
